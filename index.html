@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shanu's Hair Style | Book Your Slot</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="brand-mark">SH</div>
+  <div>
+    <h1>Shanu's Hair Style</h1>
+    <p>Men's Haircut & Grooming</p>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card intro">
+    <span class="badge">ONLINE BOOKING</span>
+    <h2>Book Your Haircut</h2>
+    <p>Choose your service, date and available time slot.</p>
+    <div class="shop-info">
+      <div>📍 Hugam Siri Gufwara</div>
+      <div>🕘 9:00 AM – 5:00 PM</div>
+      <div>📅 Tuesday Closed</div>
+      <div>📞 968278147</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>1. Select Service</h3>
+    <div class="services">
+      <button class="service active" data-service="Haircut" data-price="50">
+        <strong>Haircut</strong><span>₹50</span>
+      </button>
+      <button class="service" data-service="Beard" data-price="30">
+        <strong>Beard</strong><span>₹30</span>
+      </button>
+      <button class="service" data-service="Haircut + Beard" data-price="80">
+        <strong>Haircut + Beard</strong><span>₹80</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>2. Select Date</h3>
+    <input id="date" type="date">
+    <p id="dateNote" class="note"></p>
+  </section>
+
+  <section class="card">
+    <h3>3. Select Available Slot</h3>
+    <div id="slots" class="slots"></div>
+  </section>
+
+  <section class="card">
+    <h3>4. Your Details</h3>
+    <label>Name</label>
+    <input id="name" type="text" placeholder="Enter your name">
+    <label>Mobile Number</label>
+    <input id="phone" type="tel" placeholder="Enter mobile number">
+    <button id="bookBtn" class="primary" disabled>Confirm Booking</button>
+    <div id="message" class="message"></div>
+  </section>
+
+  <section class="card admin-link">
+    <a href="admin.html">Barber Admin / Today's Bookings →</a>
+  </section>
+</main>
+
+<footer>
+  <strong>Shanu's Hair Style</strong><br>
+  Hugam Siri Gufwara · 968278147
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

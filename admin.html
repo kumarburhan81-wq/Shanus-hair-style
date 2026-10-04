@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Shanu's Hair Style</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero compact">
+  <div class="brand-mark">SH</div>
+  <div><h1>Shanu's Hair Style</h1><p>Barber Admin</p></div>
+</header>
+<main class="container">
+  <section class="card">
+    <h2>Today's Bookings</h2>
+    <input id="adminDate" type="date">
+    <p class="note">Prototype admin panel: bookings are stored in this browser only.</p>
+    <div id="bookingList"></div>
+    <button class="danger" id="clearBtn">Clear All Demo Bookings</button>
+  </section>
+  <section class="card">
+    <a class="back" href="index.html">← Back to Booking Page</a>
+  </section>
+</main>
+<script>
+const key = "shanuBookings";
+const bookings = () => JSON.parse(localStorage.getItem(key) || "[]");
+const save = x => localStorage.setItem(key, JSON.stringify(x));
+const d = document.getElementById("adminDate");
+const today = new Date().toISOString().split("T")[0];
+d.value = today;
+function render(){
+  const date = d.value;
+  const list = bookings().filter(x=>x.date===date).sort((a,b)=>a.time.localeCompare(b.time));
+  const el=document.getElementById("bookingList");
+  if(!list.length){ el.innerHTML='<p class="empty">No bookings for this date.</p>'; return; }
+  el.innerHTML=list.map((x,i)=>`
+    <div class="booking">
+      <div><strong>${x.time}</strong> — ${x.service}</div>
+      <div>${x.name} · ${x.phone}</div>
+      <div class="price">₹${x.price}</div>
+    </div>`).join("");
+}
+d.addEventListener("change",render);
+document.getElementById("clearBtn").addEventListener("click",()=>{
+  if(confirm("Clear all demo bookings from this browser?")){save([]);render();}
+});
+render();
+</script>
+</body>
+</html>
